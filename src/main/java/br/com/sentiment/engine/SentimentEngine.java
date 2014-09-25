@@ -1,4 +1,4 @@
-package br.com.sentiment;
+package br.com.sentiment.engine;
 
 import java.util.List;
 import java.util.Map;
