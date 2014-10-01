@@ -1,4 +1,4 @@
-package br.com.sentiment.dicionary;
+package br.com.sentiment.readers;
 
 import java.util.ArrayList;
 import java.util.List;
