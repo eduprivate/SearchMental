@@ -31,7 +31,7 @@ public class SentimentEngine {
 						if (weightValue > 0){
 							positive += weightValue;
 						} else {
-							negative -= weightValue;
+							negative += weightValue;
 						}
 					}
 				}
@@ -40,5 +40,13 @@ public class SentimentEngine {
 		return new Result(negative, positive);
 
 	}
-	
+	public static void main(String[] args) {
+		int negative = 0;
+		int neg = -2;
+		System.out.println( neg );
+		
+		negative = negative + neg;
+		
+		System.out.println( negative );
+	}
 }

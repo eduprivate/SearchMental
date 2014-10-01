@@ -1379,7 +1379,7 @@ jóia;1
 jóias;1
 jocoso;2
 juntar;1
-piada;2
+piada;-2
 piadas;2
 alegre;2
 jovial;2
