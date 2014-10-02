@@ -3,7 +3,7 @@ package br.com.sentiment.engine;
 import java.util.List;
 import java.util.Map;
 
-import br.com.sentiment.model.Result;
+import br.com.sentiment.model.AnalizeResult;
 
 public class SentimentEngine {
 	
@@ -15,7 +15,7 @@ public class SentimentEngine {
 		this.dicionary = dicionary;
 	}
 	
-	public Result analyze() {
+	public AnalizeResult analyze() {
 		Integer negative = new Integer(0);
 		Integer positive = new Integer(0);
 		
@@ -24,8 +24,10 @@ public class SentimentEngine {
 		    Integer weightValue = entry.getValue();
 		    
 		    for (String document : documents) {
+		    	document = document.replaceAll("[.]", "");
+		    	document = document.replaceAll("[,]", "");
 		    	String[] words = document.split("\\s+");
-				
+
 		    	for (String word : words) {
 		    		if (word.equalsIgnoreCase(wordKey)){
 						if (weightValue > 0){
@@ -37,16 +39,8 @@ public class SentimentEngine {
 				}
 			}
 		}
-		return new Result(negative, positive);
+		return new AnalizeResult(negative, positive);
 
 	}
-	public static void main(String[] args) {
-		int negative = 0;
-		int neg = -2;
-		System.out.println( neg );
-		
-		negative = negative + neg;
-		
-		System.out.println( negative );
-	}
+	
 }

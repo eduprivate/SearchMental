@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import br.com.sentiment.dicionary.DicionaryType;
 import br.com.sentiment.dicionary.LoadDicionary;
-import br.com.sentiment.model.Result;
+import br.com.sentiment.model.AnalizeResult;
 
 public class SentimentEngineTest {
 	
@@ -18,11 +18,14 @@ public class SentimentEngineTest {
 		LoadDicionary dicionaryLoader = new LoadDicionary();
 		Map<String, Integer> dicionary = dicionaryLoader.getDicionaryMap(DicionaryType.LOCAL);
 		List<String> documentos = new ArrayList<String>();
-		String documento = "A Dilma na presidencia me deixa angustiada. É uma piada";
+		String documento = "A Dilma na presidencia me deixa angustiado. É uma piada. Já foi boa.";
 		documentos.add( documento );
 		SentimentEngine engine = new SentimentEngine(documentos, dicionary);
 		
-		Result result = engine.analyze();
+		AnalizeResult result = engine.analyze();
+		
+		System.out.println( "Negativo: "+ result.getNegative() );
+		System.out.println( "Positivo: "+ result.getPositive() );
 		
 		Assert.assertNotNull(result);
 		Assert.assertTrue( result.getNegative() < 0 );

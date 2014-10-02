@@ -8,6 +8,8 @@ abomino;-3
 abominava;-3
 abominável;-3
 abomina;-3
+bom;2
+boa;2
 habilidades;2
 capacidade;2
 bordo;1

@@ -16,12 +16,13 @@ public class TwitterReader {
 	    super();
 	}
 	
-	public List<String> readTweets(String termQuery) {
+	public List<String> readTweets(String queryTerm) {
 		List<String> documents = new ArrayList<String>();
 		Twitter twitter = new TwitterFactory().getInstance();
         
 		try {
-            Query query = new Query(termQuery);
+            Query query = new Query(queryTerm);
+            
             QueryResult result;
             do {
                 result = twitter.search(query);
