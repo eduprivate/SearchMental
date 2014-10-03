@@ -3,6 +3,8 @@ package br.com.sentiment.readers;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import twitter4j.Query;
 import twitter4j.QueryResult;
 import twitter4j.Status;
@@ -12,18 +14,21 @@ import twitter4j.TwitterFactory;
 
 public class TwitterReader {
 	
+	Logger logger = Logger.getLogger(TwitterReader.class);
+	
 	public TwitterReader() {
 	    super();
 	}
 	
 	public List<String> readTweets(String queryTerm) {
+		logger.info("Starting reading tweets: ");
 		List<String> documents = new ArrayList<String>();
 		Twitter twitter = new TwitterFactory().getInstance();
         
 		try {
             Query query = new Query(queryTerm);
-            
             QueryResult result;
+            
             do {
                 result = twitter.search(query);
                 List<Status> tweets = result.getTweets();
@@ -33,7 +38,7 @@ public class TwitterReader {
             } while ((query = result.nextQuery()) != null);
            
         } catch (TwitterException te) {
-            System.out.println("Failed to search tweets: " + te.getMessage());
+        	logger.error("Error during reading twitter.", te);
         }
 		return documents;
 	}	

@@ -3,12 +3,15 @@ package br.com.sentiment.engine;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import br.com.sentiment.model.AnalizeResult;
 
 public class SentimentEngine {
 	
 	private Map<String, Integer> dicionary;
     private List<String> documents;
+    Logger logger = Logger.getLogger(SentimentEngine.class);
 	
 	public SentimentEngine(List<String> documents, Map<String, Integer> dicionary) {
 		this.documents = documents;
@@ -16,6 +19,7 @@ public class SentimentEngine {
 	}
 	
 	public AnalizeResult analyze() {
+		logger.info("analizing... " );
 		Integer negative = new Integer(0);
 		Integer positive = new Integer(0);
 		

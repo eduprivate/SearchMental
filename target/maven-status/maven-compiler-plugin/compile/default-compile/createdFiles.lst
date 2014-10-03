@@ -1,6 +1,6 @@
 br/com/sentiment/engine/SentimentEngine.class
 br/com/sentiment/dicionary/LoadDicionary.class
-br/com/sentiment/controller/SearchMentalAnalyzer.class
+br/com/sentiment/controller/AnalyzerController.class
 br/com/sentiment/model/AnalizeResult.class
 br/com/sentiment/dicionary/DicionaryType.class
 br/com/sentiment/readers/TwitterReader.class
