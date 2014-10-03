@@ -1,3 +1,6 @@
-# SearchMental - WebApp de Analise de Sentimentos
+# SearchMental - WebApp de Análise de Sentimentos
 
-# Em desenvolvimento!
+O SearchMental é uma Webapp para análise de sentimentos que análise textos de diversas fontes (Hoje só o twitter).
+
+A aplicação é escrita em Java e roda em web containers como o Tomcat.  
+
