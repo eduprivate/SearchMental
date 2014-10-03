@@ -889,6 +889,8 @@ exagerando;-2
 exasperado;2
 excelência;3
 excelente;3
+ótima;3
+ótimo;3
 excitar;3
 animado;3
 excitação;3

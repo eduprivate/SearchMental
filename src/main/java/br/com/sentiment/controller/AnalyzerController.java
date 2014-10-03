@@ -29,7 +29,7 @@ public class AnalyzerController {
 	public void index(String queryTerm) {
 		logger.info("queryTerm: " + queryTerm );
 		
-		if (queryTerm != null && queryTerm.isEmpty()) {
+		if (queryTerm != null && !queryTerm.isEmpty()) {
 			
 			logger.info("queryTerm: " + queryTerm );
 			
