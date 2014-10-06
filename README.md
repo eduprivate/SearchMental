@@ -4,3 +4,4 @@ O SearchMental é uma Webapp para análise de sentimentos que análise textos de
 
 A aplicação é escrita em Java e roda em web containers como o Tomcat.  
 
+![Alt text](/home/cadu/desenvolvimento/sistema/workspace_dev/searchmental/src/main/resources/searchmental.png "Primeira versão")
