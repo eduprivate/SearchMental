@@ -20,10 +20,14 @@ import br.com.sentiment.readers.TwitterReader;
 public class StatisticController {
 	
 	protected Result result;
+	private final TwitterReader reader;
+	private final LoadDicionary dicionaryLoader;
 	Logger logger = Logger.getLogger(StatisticController.class);
 	
-	public StatisticController(Result result) {
+	public StatisticController(Result result, TwitterReader reader, LoadDicionary dicionaryLoader) {
 		this.result = result;
+		this.reader = reader;
+		this.dicionaryLoader = dicionaryLoader;
 	}
     
 	@Path("/{queryTerm}")
@@ -31,11 +35,7 @@ public class StatisticController {
 		logger.info("queryTerm: " + queryTerm );
 		
 		if (queryTerm != null && !queryTerm.isEmpty()) {
-			
 			logger.info("queryTerm: " + queryTerm );
-			
-			TwitterReader reader = new TwitterReader();
-			LoadDicionary dicionaryLoader = new LoadDicionary();
 			Map<String, Integer> dicionary = dicionaryLoader.getDicionaryMap(DicionaryType.LOCAL);
 			
 			List<String> documents = reader.readTweets(queryTerm);
@@ -48,5 +48,5 @@ public class StatisticController {
 			StatisticAnalizeResult statisticAnalizeResult = new StatisticAnalizeResult(0, 0, 0D, 0D, 0D);
 			result.include("statisticAnalizeResult", statisticAnalizeResult);
 		}	
-	}	
+	}
 }

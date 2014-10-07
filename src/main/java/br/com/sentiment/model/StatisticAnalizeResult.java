@@ -2,18 +2,46 @@ package br.com.sentiment.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;	
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="STATISTIC_RESULT")
 public class StatisticAnalizeResult implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	private Integer negative = new Integer(0);
-	private Integer positive = new Integer(0);
-	private Double count = new Double(1D);
-	private Double countNegative = new Double(0D);
-	private Double countPositive = new Double(0D);
-	private Integer score = new Integer(0);
-	private Double positivePercent = new Double(0D);
-	private Double negativePercent = new Double(0D);
 	
+	@Id
+	@GeneratedValue
+	@Column(name="ID")
+	private Long id;
+	
+	@Column(name="NEGATIVE")
+	private Integer negative = new Integer(0);
+	
+	@Column(name="POSITIVE")
+	private Integer positive = new Integer(0);
+	
+	@Column(name="COUNT")
+	private Double count = new Double(1D);
+	
+	@Column(name="COUNT_NEGATIVE")
+	private Double countNegative = new Double(0D);
+	
+	@Column(name="COUNT_POSITIVE")
+	private Double countPositive = new Double(0D);
+	
+	@Column(name="SCORE")
+	private Integer score = new Integer(0);
+	
+	@Column(name="POSITIVE_PERCENT")
+	private Double positivePercent = new Double(0D);
+	
+	@Column(name="NEGATIVE_PERCENTE")
+	private Double negativePercent = new Double(0D);
 	
 	public StatisticAnalizeResult(Integer negative, Integer positive,
 			Double count, Double countNegative, Double countPositive) {

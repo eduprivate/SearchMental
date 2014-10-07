@@ -1,8 +1,9 @@
 br/com/sentiment/controller/StatisticController.class
-br/com/sentiment/engine/SentimentEngine.class
 br/com/sentiment/dicionary/LoadDicionary.class
-br/com/sentiment/controller/AnalyzerController.class
-br/com/sentiment/model/AnalizeResult.class
-br/com/sentiment/dicionary/DicionaryType.class
 br/com/sentiment/model/StatisticAnalizeResult.class
+br/com/sentiment/dicionary/DicionaryType.class
 br/com/sentiment/readers/TwitterReader.class
+br/com/sentiment/engine/SentimentEngine.class
+br/com/sentiment/controller/AnalyzerController.class
+br/com/sentiment/persistence/Persister.class
+br/com/sentiment/model/AnalizeResult.class

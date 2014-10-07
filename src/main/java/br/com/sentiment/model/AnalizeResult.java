@@ -2,13 +2,34 @@ package br.com.sentiment.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table( name="NRM_RESULT" )
 public class AnalizeResult implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	private Integer negative;
-	private Integer positive;
-	private Integer score;
 	
+	@Id
+	@GeneratedValue
+	@Column(name="ID")
+	private Long id;
+	
+	@Column(name="TERM")
+	private String term;
+	
+	@Column(name="NEGATIVE")
+	private Integer negative;
+	
+	@Column(name="POSITIVE")
+	private Integer positive;
+	
+	@Column(name="SCORE")
+	private Integer score;
 	
 	public AnalizeResult(Integer negative, Integer positive) {
 		super();

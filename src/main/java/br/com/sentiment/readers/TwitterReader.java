@@ -11,7 +11,9 @@ import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
+import br.com.caelum.vraptor.ioc.Component;
 
+@Component
 public class TwitterReader {
 	
 	Logger logger = Logger.getLogger(TwitterReader.class);

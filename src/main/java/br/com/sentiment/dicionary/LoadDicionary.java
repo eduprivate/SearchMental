@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import br.com.caelum.vraptor.ioc.Component;
+
+@Component
 public class LoadDicionary {
 	
     public LoadDicionary() {
