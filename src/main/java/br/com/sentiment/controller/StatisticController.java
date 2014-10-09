@@ -11,7 +11,6 @@ import br.com.caelum.vraptor.Result;
 import br.com.sentiment.dicionary.DicionaryType;
 import br.com.sentiment.dicionary.LoadDicionary;
 import br.com.sentiment.engine.SentimentEngine;
-import br.com.sentiment.model.AnalizeResult;
 import br.com.sentiment.model.StatisticAnalizeResult;
 import br.com.sentiment.readers.TwitterReader;
 
@@ -39,13 +38,13 @@ public class StatisticController {
 			Map<String, Integer> dicionary = dicionaryLoader.getDicionaryMap(DicionaryType.LOCAL);
 			
 			List<String> documents = reader.readTweets(queryTerm);
-			SentimentEngine engine = new SentimentEngine(documents, dicionary);
+			SentimentEngine engine = new SentimentEngine(queryTerm, documents, dicionary);
 			
 			StatisticAnalizeResult statisticAnalizeResult = engine.statisticAnalyze();
 			logger.info("analizeResult: " + statisticAnalizeResult );
 			result.include("statisticAnalizeResult", statisticAnalizeResult);
 		} else {
-			StatisticAnalizeResult statisticAnalizeResult = new StatisticAnalizeResult(0, 0, 0D, 0D, 0D);
+			StatisticAnalizeResult statisticAnalizeResult = new StatisticAnalizeResult("", 0, 0, 0D, 0D, 0D);
 			result.include("statisticAnalizeResult", statisticAnalizeResult);
 		}	
 	}

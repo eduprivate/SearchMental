@@ -1,12 +1,16 @@
 package br.com.sentiment.model;
 
 import java.io.Serializable;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;	
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="STATISTIC_RESULT")
@@ -18,6 +22,9 @@ public class StatisticAnalizeResult implements Serializable {
 	@GeneratedValue
 	@Column(name="ID")
 	private Long id;
+	
+	@Column(name="TERM")
+	private String term;
 	
 	@Column(name="NEGATIVE")
 	private Integer negative = new Integer(0);
@@ -43,9 +50,14 @@ public class StatisticAnalizeResult implements Serializable {
 	@Column(name="NEGATIVE_PERCENTE")
 	private Double negativePercent = new Double(0D);
 	
-	public StatisticAnalizeResult(Integer negative, Integer positive,
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="DATE", columnDefinition = "DATETIME" )
+	private Date date;
+	
+	public StatisticAnalizeResult(String term, Integer negative, Integer positive,
 			Double count, Double countNegative, Double countPositive) {
 		super();
+		this.term = term;
 		this.negative = negative;
 		this.positive = positive;
 		this.count = count;
@@ -55,8 +67,18 @@ public class StatisticAnalizeResult implements Serializable {
 		if (this.count == 0)
 			this.count = 1D;
 		
-		positivePercent = new Double( this.countPositive / this.count ) * 100;
-		negativePercent = new Double( this.countNegative / this.count ) * 100;
+		this.positivePercent = new Double( this.countPositive / this.count ) * 100;
+		this.negativePercent = new Double( this.countNegative / this.count ) * 100;
+		Calendar calendar = Calendar.getInstance();
+		this.date = calendar.getTime();
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Integer getNegative() {
@@ -108,7 +130,6 @@ public class StatisticAnalizeResult implements Serializable {
 	}
 
 	public Double getPositivePercent() {
-		
 		return positivePercent;
 	}
 
@@ -122,6 +143,22 @@ public class StatisticAnalizeResult implements Serializable {
 
 	public void setNegativePercent(Double negativePercent) {
 		this.negativePercent = negativePercent;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	
+	public String getTerm() {
+		return term;
+	}
+	
+	public void setTerm(String term) {
+		this.term = term;
 	}
 	
 }

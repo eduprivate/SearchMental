@@ -39,13 +39,13 @@ public class AnalyzerController {
 			Map<String, Integer> dicionary = dicionaryLoader.getDicionaryMap(DicionaryType.LOCAL);
 			
 			List<String> documents = reader.readTweets(queryTerm);
-			SentimentEngine engine = new SentimentEngine(documents, dicionary);
+			SentimentEngine engine = new SentimentEngine(queryTerm, documents, dicionary);
 			
 			AnalizeResult analizeResult = engine.analyze();
 			logger.info("analizeResult: " + analizeResult );
 			result.include("analizeResult", analizeResult);
 		} else {
-			AnalizeResult analizeResult = new AnalizeResult(0, 0);
+			AnalizeResult analizeResult = new AnalizeResult("", 0, 0);
 			result.include("analizeResult", analizeResult);
 		}	
 	}

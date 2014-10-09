@@ -1,19 +1,33 @@
 package br.com.sentiment.persistence;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 
 public class Persister {
 	
-	@PersistenceContext
-	protected EntityManager entityManager;
+	private EntityManagerFactory factory;
 	
-	public void saveEntity(Object object){
-		entityManager.persist(object);
+	public Persister() {
+		this.factory = Persistence.createEntityManagerFactory("searchmental");
 	}
 	
+	public void saveEntity(Object entity){
+		EntityManager manager = factory.createEntityManager();
+
+		manager.getTransaction().begin();
+		manager.persist(entity);
+		manager.getTransaction().commit();
+
+		manager.close();
+	}
 	
-	
+	public static void main(String[] args) {
+	    EntityManagerFactory factory = Persistence.
+	          createEntityManagerFactory("searchmental");
+
+	    factory.close();
+	}
 	
 }

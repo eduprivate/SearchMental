@@ -12,9 +12,11 @@ public class SentimentEngine {
 	
 	private Map<String, Integer> dicionary;
     private List<String> documents;
+    private String term;
     Logger logger = Logger.getLogger(SentimentEngine.class);
 	
-	public SentimentEngine(List<String> documents, Map<String, Integer> dicionary) {
+	public SentimentEngine(String term, List<String> documents, Map<String, Integer> dicionary) {
+		this.term = term;
 		this.documents = documents;
 		this.dicionary = dicionary;
 	}
@@ -44,7 +46,7 @@ public class SentimentEngine {
 				}
 			}
 		}
-		return new AnalizeResult(negative, positive);
+		return new AnalizeResult(term, negative, positive);
 
 	}
 	
@@ -82,7 +84,7 @@ public class SentimentEngine {
 			}
 		}
 	
-		return new StatisticAnalizeResult(negative, positive, count, countNegative, countPositive);
+		return new StatisticAnalizeResult(term, negative, positive, count, countNegative, countPositive);
 
 	}
 	

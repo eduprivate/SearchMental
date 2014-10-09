@@ -21,7 +21,7 @@ public class SentimentEngineTest {
 		List<String> documentos = new ArrayList<String>();
 		String documento = "A Dilma na presidencia me deixa angustiado. É uma piada. Já foi boa.";
 		documentos.add( documento );
-		SentimentEngine engine = new SentimentEngine(documentos, dicionary);
+		SentimentEngine engine = new SentimentEngine("dilma", documentos, dicionary);
 		
 		AnalizeResult result = engine.analyze();
 		
@@ -43,7 +43,7 @@ public class SentimentEngineTest {
 		documentos.add( documento );
 		documentos.add( documento2 );
 		
-		SentimentEngine engine = new SentimentEngine(documentos, dicionary);
+		SentimentEngine engine = new SentimentEngine("dilma", documentos, dicionary);
 		
 		StatisticAnalizeResult result = engine.statisticAnalyze();
 			
